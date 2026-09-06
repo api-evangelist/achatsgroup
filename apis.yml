@@ -1,17 +1,35 @@
 aid: achatsgroup
-name: Achatsgroup
-description: 'Achatsgroup is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+name: Achats Group
+description: >-
+  Achats Group (아샤그룹) is a South Korean media-commerce company founded in February 2017 and led by
+  CEO Vivian Eun Young Lee, with offices in Pangyo (Seongnam) and Magok (Seoul). It manufactures
+  and sells everyday consumer goods — sanitizing and deodorizing sprays, foot care, living care,
+  health drinks and cosmetics — under its own brands Cellomon, ND247 / Neverdie, Biotreat and
+  BringB, marketing them through short-form video and social advertising that routes buyers into
+  its own Cafe24 storefronts and a Naver Smart Store. Public records put total funding near USD 6.2
+  million through a Series B. It is a direct-to-consumer consumer-goods business, not a software
+  vendor: as of 2026-09-06 achatsgroup.co.kr is a Cafe24-hosted brochure site still carrying
+  unedited pages from its purchased template, with no developer portal, no API documentation, no
+  SDK and no machine-readable API contract, and the brand storefronts are hosted Cafe24 malls whose
+  only /api path is Cafe24's own.
+image: http://achatsgroup.co.kr/default/img/images/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/achatsgroup/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-06'
 modified: '2026-09-06'
 tags:
 - Company
+- Consumer Goods
+- Media Commerce
+- E-Commerce
+- Direct to Consumer
+- Cosmetics
+- Health and Beauty
+- Retail
+- Cafe24
+- South Korea
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +38,46 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: http://achatsgroup.co.kr/
+- type: Support
+  url: http://achatsgroup.co.kr/default/01/menu02.php
+- type: Facebook
+  url: https://www.facebook.com/AchatsGroup
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/achats-group
+- type: SecondaryMarket
   url: https://equityzen.com/company/achatsgroup
+- type: DomainSecurity
+  url: security/achatsgroup-domain-security.yml
+- type: Packages
+  url: packages/achatsgroup-packages.yml
+- type: Conformance
+  url: conformance/achatsgroup-conformance.yml
+- type: LLMsTxt
+  url: llms/achatsgroup-llms.txt
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Achats Group manufactures and sells physical consumer goods — Cellomon sprays, ND247 hangover
+    drinks, Biotreat and BringB — through rented Cafe24 storefronts and a Naver Smart Store, and
+    its own achatsgroup.co.kr is an unedited purchased Cafe24 template still carrying the vendor's
+    demo pages, so there is no product an API could front; every contract-discovery and
+    /.well-known/ path on all four company hosts returned 404, and api./docs./developer.
+    subdomains only appear to exist because the domain answers DNS for every label and serves the
+    same 709-byte homepage on each.
+  evidence:
+  - url: http://achatsgroup.co.kr/openapi.json
+    status: 404
+  - url: http://achatsgroup.co.kr/.well-known/agent-card.json
+    status: 404
+  - url: http://api.achatsgroup.co.kr/
+    status: 200
+  - url: https://cellomon.com/llms.txt
+    status: 404
+  checked: '2026-09-06'

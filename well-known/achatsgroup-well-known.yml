@@ -1,0 +1,163 @@
+generated: '2026-09-06'
+method: probed
+source: live HTTP probes of /.well-known/ and contract-discovery paths on every Achats Group host
+result: >-
+  none — not one /.well-known/ document and no machine-readable API contract is served on any host
+  Achats Group controls. The corporate site is a Cafe24-hosted brochure site and the brand
+  storefronts are hosted Cafe24 shopping malls; neither platform exposes a merchant-facing API on
+  the merchant's own domain. This is a completed negative result, not an unfinished probe.
+x-probe-note: >-
+  Probes were issued over http:// on the achatsgroup.co.kr hosts because https:// cannot be
+  completed there: the origin presents a *.cafe24.com certificate, which does not match
+  achatsgroup.co.kr (recorded in security/achatsgroup-domain-security.yml). The brand storefronts
+  cellomon.com and neverdie.co.kr were probed over https, which they serve correctly.
+hosts:
+- host: achatsgroup.co.kr
+  platform: Cafe24 (shared hosting, nginx; weblog uid=achatscorp)
+  scheme_probed: http
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: >-
+      57 bytes — "User-agent: * / Disallow: /admin / Disallow: /api / Allow: /". The /api
+      disallow is the Cafe24 platform's own internal endpoint prefix, not an Achats Group API,
+      and it was honored: no path under /api was probed.
+  - path: /sitemap.xml
+    status: 404
+- host: www.achatsgroup.co.kr
+  scheme_probed: http
+  note: same origin as the apex; identical 404 on every path above
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: achatsgroup.com
+  scheme_probed: http
+  note: >-
+    a second registered domain that 301-redirects to http://achatsgroup.co.kr/. Serves no
+    distinct content and no HTTPS listener answers on port 443.
+  documents:
+  - path: /
+    status: 301
+- host: cellomon.com
+  platform: Cafe24 shopping mall (brand storefront)
+  scheme_probed: https
+  documents:
+  - path: /llms.txt
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: >-
+      stock Cafe24 storefront robots.txt (Disallow /admin, /api, /exec/front/, /member/,
+      /myshop/, /protected/, /skin-*). Honored — nothing under /api was probed.
+  - path: /sitemap.xml
+    status: 200
+    note: Cafe24-generated storefront sitemap; product and category pages only
+- host: neverdie.co.kr
+  platform: Cafe24 shopping mall (ND247 / Neverdie brand storefront)
+  scheme_probed: https
+  documents:
+  - path: /llms.txt
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+  - path: /sitemap.xml
+    status: 200
+wildcard_dns_warning: >-
+  achatsgroup.co.kr answers DNS for every label — api., docs., developer., dev., shop. and mall.
+  all resolve to the same 220.73.161.60. They are NOT distinct hosts: each one returns the same
+  709-byte corporate landing page over HTTP (200), so a DNS answer on this domain is not evidence
+  of an API or docs host. Verified by fetching http://api.achatsgroup.co.kr/,
+  http://docs.achatsgroup.co.kr/ and http://developer.achatsgroup.co.kr/ — all 200, all identical
+  to the apex homepage.
+contract_discovery:
+  openapi: >-
+    not found — probed /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs,
+    /docs and /redoc on the apex, www and the two storefront hosts. All 404.
+  graphql: >-
+    not found — /graphql returns the site's 404 page on achatsgroup.co.kr; no GraphQL surface is
+    referenced anywhere in the site or in Korean-language search.
+  mcp: >-
+    not found — no hosted MCP endpoint, no mcp. host, and nothing in the site or in search
+    referencing Model Context Protocol.
+  a2a_agent_card: >-
+    not found — /.well-known/agent-card.json and the legacy /.well-known/agent.json both 404 on
+    achatsgroup.co.kr, www.achatsgroup.co.kr, cellomon.com and neverdie.co.kr. No a2a/ artifact
+    is written and no AgentCard pointer is wired.
+  wsdl: >-
+    not probed as a live endpoint — there is no API host to append ?wsdl to, and neither the site
+    nor search names any SOAP or enterprise integration surface.
+  grpc: not found — no published .proto, no GitHub organization (see packages/).
+  ogc: not applicable — no geospatial surface and no evidence pointing at one.
+  conclusion: >-
+    Achats Group publishes no machine-readable API contract of any kind on any host it controls.
+x-evidence:
+  fetched: '2026-09-06'
+  method: >-
+    curl GET, browser User-Agent, 12–25s timeout, redirects followed; robots.txt read first and
+    the /api and /admin disallows honored on every Cafe24 host.
+  dns_method: dig +short A/CNAME, plus an HTTP fetch of each candidate subdomain to defeat the
+    wildcard record

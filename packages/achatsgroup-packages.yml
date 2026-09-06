@@ -1,0 +1,59 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  direct registry API queries against npm, PyPI, RubyGems, crates.io, Packagist, NuGet, Maven
+  Central and the GitHub org/user API (2026-09-06), plus a full read of achatsgroup.co.kr
+result: none
+notes: >-
+  Achats Group publishes no client library, no SDK and no CLI, because it publishes no API. It is a
+  Korean direct-to-consumer consumer-goods and media-commerce company; its software footprint is a
+  Cafe24 brochure site and two Cafe24 hosted storefronts, all of which are rented platform tenancy
+  rather than shipped code. No `SDKs` pointer is wired in apis.yml and the sdk_count checks are
+  correctly left unearned. Every "achats" match found in a registry is French — achats is French
+  for "purchases" — and none is connected to this company.
+packages: []
+registries_checked:
+- registry: npm
+  query: achats, achatsgroup, cellomon, nd247
+  result: >-
+    6 fuzzy matches on "achats" (ms-section-achats, @drcmind/ohada-lib, karibou-mlx,
+    @mostajs/fournisseurs and two unrelated), all French-language and unrelated; 0 for cellomon.
+  version: null
+- registry: pypi
+  query: achats, achatsgroup, achats-group, cellomon
+  result: 404 on every spelling — no project exists
+  version: null
+- registry: rubygems
+  query: achats
+  result: 0 results
+  version: null
+- registry: crates.io
+  query: achats
+  result: 4 unrelated fuzzy matches (achat, orchard-rs, objets_metier_rs, xwords)
+  version: null
+- registry: packagist
+  query: achats
+  result: 51 unrelated fuzzy matches, all on the achais/ and achar* vendor prefixes
+  version: null
+- registry: nuget
+  query: achats
+  result: 0 hits
+  version: null
+- registry: maven-central
+  query: achats
+  result: numFound 0
+  version: null
+- registry: github
+  query: orgs/achatsgroup, orgs/achats-group, orgs/achatscorp, orgs/cellomon; search/users?q=achats
+  result: >-
+    all four candidate organizations return 404. The 80 users/orgs matching "achats" are French
+    (Achatsconsulting, AchatsCanada, Le-GAG, achatsecurisefrance-ship-it, Groupe-Achats and
+    similar) — "achats" is French for "purchases". None belongs to the Korean company, and no
+    GitHubOrganization pointer is wired.
+  version: null
+cdn_distribution:
+  found: false
+  note: >-
+    No first-party script tag, unpkg or jsDelivr URL is served from any Achats Group page. The
+    third-party scripts on the site are Cafe24's own weblog beacon, a Facebook pixel and a
+    Font Awesome 5.0.13 CDN stylesheet — vendor infrastructure, not a distributed Achats build.

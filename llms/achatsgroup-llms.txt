@@ -1,0 +1,40 @@
+# Achats Group (아샤그룹)
+
+> Achats Group is a South Korean media-commerce company founded in February 2017 and led by CEO Vivian Eun Young Lee. It manufactures and sells everyday consumer goods — sanitizing and deodorizing sprays, foot care, living care, health drinks and cosmetics — under its own brands Cellomon, ND247 / Neverdie, Biotreat and BringB, and sells them through short-form video and social advertising that routes buyers into its own Cafe24 storefronts and a Naver Smart Store. Offices are in Pangyo (Seongnam) and Magok (Gangseo-gu, Seoul).
+
+Achats Group is a direct-to-consumer consumer-goods and marketing business, not a software vendor. As of 2026-09-06 it publishes **no public API, no developer portal, no API documentation, no SDK and no machine-readable API contract of any kind**.
+
+Do not assume or invent an endpoint on this company. `api.achatsgroup.co.kr`, `docs.achatsgroup.co.kr` and `developer.achatsgroup.co.kr` all *resolve*, because achatsgroup.co.kr answers DNS for every label, but each one returns the same 709-byte corporate landing page over HTTP — they are wildcard vhosts, not hosts. A DNS answer on this domain is not evidence of an API.
+
+The `Disallow: /api` line in the robots.txt on achatsgroup.co.kr, cellomon.com and neverdie.co.kr is Cafe24's own platform prefix on every site it hosts, not an Achats Group API. It was honored and nothing under it was probed.
+
+Note on transport: https://achatsgroup.co.kr/ cannot be verified — the origin presents a `*.cafe24.com` certificate that does not match the hostname, so the site is reachable in practice only over plaintext `http://`. The brand storefronts serve HTTPS correctly.
+
+## Company
+
+- [Achats Group](http://achatsgroup.co.kr/): company website (Korean; Cafe24-hosted brochure site)
+- [Introduction / 사업소개](http://achatsgroup.co.kr/default/01/menu01.php): what the company says it does
+- [Contact us](http://achatsgroup.co.kr/default/01/menu02.php): offices, directions and enquiry form
+- [Crunchbase: Achats Group](https://www.crunchbase.com/organization/achats-group): funding and company profile
+- [EquityZen: Achatsgroup](https://equityzen.com/company/achatsgroup): pre-IPO secondary-market listing (ticker ACGR, EquityZen-internal only)
+- [Facebook: AchatsGroup 아샤그룹](https://www.facebook.com/AchatsGroup): company page
+
+## Brands and storefronts
+
+Each brand sells from a hosted Cafe24 shopping mall on its own domain. These are storefronts, not APIs: no `/llms.txt`, no `/.well-known/` document and no product JSON contract is served on any of them.
+
+- [Cellomon (셀로몬)](https://cellomon.com/): sanitizing and deodorizing sprays, desiccants, home care
+- [ND247 / Neverdie (네버다이)](https://neverdie.co.kr/): hangover-relief and arginine/maca health drinks
+- Biotreat and BringB: named on the company site's brand menu
+- [Achats Mall on Naver Smart Store](https://smartstore.naver.com/achatsmall): the company's Naver marketplace shop
+
+## Business
+
+Media commerce — the company describes itself as integrating video content and e-commerce so a product can be bought directly after the video is watched — running manufacturing, content, advertising and D2C sales in-house. Public records report roughly USD 6.2 million raised through a Series B, including USD 1.5 million from Mega Investment.
+
+## What this repository contains
+
+- `well-known/achatsgroup-well-known.yml`: every `/.well-known/` and contract-discovery path probed, with the status each returned (all 404)
+- `security/achatsgroup-domain-security.yml`: TLS, HSTS, DNSSEC, CAA, SPF and DMARC as observed
+- `packages/achatsgroup-packages.yml`: the registry sweep — npm, PyPI, RubyGems, crates.io, Packagist, NuGet, Maven Central, GitHub — and its zero result
+- `conformance/achatsgroup-conformance.yml`: which standards are not applicable here, and the two that are applicable and unmet (security.txt, valid TLS)

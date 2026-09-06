@@ -1,0 +1,91 @@
+generated: '2026-09-06'
+method: derived
+source: >-
+  probe results in well-known/achatsgroup-well-known.yml and
+  security/achatsgroup-domain-security.yml, plus a read of achatsgroup.co.kr, cellomon.com and
+  neverdie.co.kr (2026-09-06)
+scope: >-
+  Achats Group publishes no API, so there is no contract in which a standard could be declared.
+  Every API and agent-protocol standard below is therefore recorded as applicable:false — a
+  not-applicable, not a failure — so this file is never read as a compliance posture the company
+  does not claim. Two items are applicable and genuinely unmet: RFC 9116 security.txt, which any
+  company operating a public website can publish, and valid TLS on its own hostname, which the
+  site does not currently serve. Those are the only actionable findings here.
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: >-
+    no public API contract on any host — see well-known/achatsgroup-well-known.yml
+    (contract_discovery.openapi)
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: graphql
+  conforms: false
+  applicable: false
+- id: grpc-protobuf
+  conforms: false
+  applicable: false
+- id: soap-wsdl
+  conforms: false
+  applicable: false
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+  evidence: /.well-known/openid-configuration returns 404 on achatsgroup.co.kr
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: mcp
+  conforms: false
+  applicable: false
+  evidence: no hosted MCP endpoint and no mcp. host
+- id: a2a
+  conforms: false
+  applicable: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json both 404 on achatsgroup.co.kr,
+    www.achatsgroup.co.kr, cellomon.com and neverdie.co.kr
+- id: llms-txt
+  conforms: false
+  applicable: true
+  evidence: /llms.txt returns 404 on all four hosts
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on all four hosts
+  remedy: >-
+    Publishing a /.well-known/security.txt with a contact address is a five-minute change for any
+    company running a public storefront, and is the entry point a researcher looks for first.
+- id: rfc8615-well-known-api-catalog
+  conforms: false
+  applicable: false
+  evidence: /.well-known/api-catalog returns 404; there is no API to catalog
+domain_standard:
+  found: false
+  note: >-
+    REWARD-ONLY check, correctly left unearned. Achats Group's market — Korean direct-to-consumer
+    consumer goods sold through hosted storefronts — has no machine-readable domain standard the
+    company could declare in a contract it does not publish. Nothing is invented to fill the slot.
+information_security_compliance:
+  found: false
+  note: >-
+    probe-security-programs.py returned vdp=none trust=none on 2026-09-06: no security.txt policy,
+    no bug bounty program on HackerOne/Bugcrowd/Intigriti, no disclosure page and no trust center
+    naming SOC 2, ISO 27001, PCI DSS, HIPAA or ISMS-P certification. No `Compliance` and no
+    `TrustCenter` pointer is wired.
+domain_security_observed:
+  source: security/achatsgroup-domain-security.yml
+  summary: >-
+    achatsgroup.co.kr fails TLS certificate validation on its own name — the origin presents a
+    Sectigo-issued *.cafe24.com certificate (SAN: *.cafe24.com, cafe24.com), so a browser reaching
+    https://achatsgroup.co.kr/ gets a hostname-mismatch warning and the site is only usable over
+    plaintext HTTP. No HSTS header, no DNSSEC and no CAA record; an SPF record is published, DMARC
+    is not.
+  remedy: >-
+    Provision a certificate covering achatsgroup.co.kr (Cafe24 offers this on the hosting plan),
+    redirect HTTP to HTTPS, then add HSTS and a DMARC record.

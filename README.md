@@ -64,5 +64,21 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Achatsgroup is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/achatsgroup
+Achats Group (아샤그룹) is a South Korean media-commerce company founded in February 2017 and led by
+CEO Vivian Eun Young Lee, with offices in Pangyo (Seongnam) and Magok (Seoul). It manufactures and
+sells everyday consumer goods — sanitizing and deodorizing sprays, foot care, living care, health
+drinks and cosmetics — under its own brands Cellomon, ND247 / Neverdie, Biotreat and BringB, and
+takes them to market through short-form video and social advertising that routes buyers into its
+own Cafe24 storefronts and a Naver Smart Store.
+
+**No API surface.** As of 2026-09-06 Achats Group publishes no developer portal, no API
+documentation, no SDK and no machine-readable API contract on any host it controls. Every
+`/.well-known/` and contract-discovery path probed on `achatsgroup.co.kr`, `www.achatsgroup.co.kr`,
+`cellomon.com` and `neverdie.co.kr` returned 404; the registry sweep across npm, PyPI, RubyGems,
+crates.io, Packagist, NuGet, Maven Central and GitHub found nothing first-party. This is a recorded
+absence, not an unfinished pass — see `well-known/achatsgroup-well-known.yml` for the probe log.
+
+- Website: http://achatsgroup.co.kr/
+- Cellomon storefront: https://cellomon.com/
+- ND247 / Neverdie storefront: https://neverdie.co.kr/
+- Secondary-market listing: https://equityzen.com/company/achatsgroup
