@@ -1,4 +1,4 @@
-# Achatsgroup
+# Achats Group
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,21 +64,80 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Achats Group (아샤그룹) is a South Korean media-commerce company founded in February 2017 and led by
-CEO Vivian Eun Young Lee, with offices in Pangyo (Seongnam) and Magok (Seoul). It manufactures and
-sells everyday consumer goods — sanitizing and deodorizing sprays, foot care, living care, health
-drinks and cosmetics — under its own brands Cellomon, ND247 / Neverdie, Biotreat and BringB, and
-takes them to market through short-form video and social advertising that routes buyers into its
-own Cafe24 storefronts and a Naver Smart Store.
+Achats Group (아샤그룹) is a South Korean media-commerce company founded in February 2017 and led by CEO Vivian Eun Young Lee, with offices in Pangyo (Seongnam) and Magok (Seoul). It manufactures and sells everyday consumer goods — sanitizing and deodorizing sprays, foot care, living care, health drinks and cosmetics — under its own brands Cellomon, ND247 / Neverdie, Biotreat and BringB, marketing them through short-form video and social advertising that routes buyers into its own Cafe24 storefronts and a Naver Smart Store. Public records put total funding near USD 6.2 million through a Series B. It is a direct-to-consumer consumer-goods business, not a software vendor: as of 2026-09-06 achatsgroup.co.kr is a Cafe24-hosted brochure site still carrying unedited pages from its purchased template, with no developer portal, no API documentation, no SDK and no machine-readable API contract, and the brand storefronts are hosted Cafe24 malls whose only /api path is Cafe24's own.
 
-**No API surface.** As of 2026-09-06 Achats Group publishes no developer portal, no API
-documentation, no SDK and no machine-readable API contract on any host it controls. Every
-`/.well-known/` and contract-discovery path probed on `achatsgroup.co.kr`, `www.achatsgroup.co.kr`,
-`cellomon.com` and `neverdie.co.kr` returned 404; the registry sweep across npm, PyPI, RubyGems,
-crates.io, Packagist, NuGet, Maven Central and GitHub found nothing first-party. This is a recorded
-absence, not an unfinished pass — see `well-known/achatsgroup-well-known.yml` for the probe log.
+**Areas:** Company · Consumer Goods · Media Commerce · E-Commerce · Direct to Consumer · Cosmetics · Health and Beauty · Retail · Cafe24 · South Korea
 
-- Website: http://achatsgroup.co.kr/
-- Cellomon storefront: https://cellomon.com/
-- ND247 / Neverdie storefront: https://neverdie.co.kr/
-- Secondary-market listing: https://equityzen.com/company/achatsgroup
+## Achats Group on APIs.io
+
+Everything profiled for Achats Group is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/achatsgroup/](https://apis.io/providers/achatsgroup/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Achatsgroup Domain Security](https://apis.io/security/achatsgroup/achatsgroup-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](http://achatsgroup.co.kr/)
+- [Support](http://achatsgroup.co.kr/default/01/menu02.php)
+
+## API Evangelist rating
+
+**Kin Score 6.0** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 4.8 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 8.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/achatsgroup/](https://apis.io/providers/achatsgroup/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Achats Group: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/achatsgroup/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
